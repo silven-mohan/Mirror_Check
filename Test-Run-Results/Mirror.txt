@@ -1,1 +1,7 @@
+Run With Valid Palindrome String:
 
+Enter the word:madam is a Palindrome.
+
+Run With Invalid Palindrome String:
+
+Enter the word:girl is not a Palindrome.
