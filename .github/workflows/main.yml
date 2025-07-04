@@ -1,0 +1,66 @@
+name: C Build and Run
+
+on:
+  push:
+    paths:
+      - '**/*.c'
+      - '**/*.yml'
+    branches:
+      - main
+    tags-ignore:
+      - '**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Instal GCC
+        run: sudo apt-get install -y build-essential
+
+      # Compilation
+
+      - name: Compile Mirror Check
+        run: gcc Mirror_Check.c -o MirrorCheck
+
+      # Run Mirror Check
+
+      # Run with Valid Palindrome String
+
+      - name: Run Mirror Check with Valid Palindrome String
+        run: |
+          echo -e "Run With Valid Palindrome String:\n" > Test-Run-Result/Mirror.txt
+          echo "madam" | ./MirrorCheck >> Test-Run-Result/Mirror.txt
+
+      # Run with Invalid Palindrome String
+
+      - name: Run Mirror Check with Valid Palindrome String
+        run: |
+          echo -e "\n\nRun With Invalid Palindrome String:\n" >> Test-Run-Result/Mirror.txt
+          echo "Girl" | ./MirrorCheck >> Test-Run-Result/Mirror.txt
+
+      # Push Results to Repo
+      - name: Upload Mirror_Check Test Run Results to Repo
+        uses: actions/upload-artifact@v4
+        with:
+          name: Push Mirror_Check Test-Run-Result
+          path: Test-Run-Result/Mirror.txt
+      - name: Push Mirror.txt to Repo
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${TOKEN}@github.com/${{ github.repository }}
+          git add Test-Run-Result/Mirror.txt
+          git commit -m "Update Mirror_Check output" [skip ci] || echo "No changes to commit"
+          git push
+      
