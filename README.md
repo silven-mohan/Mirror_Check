@@ -2,7 +2,7 @@
 
 ----
 
-![CI](https://github.com/silven-mohan/PassCheck/actions/workflows/.github/workflows/main.yml/badge.svg)
+![CI](https://github.com/silven-mohan/Mirror_Check/actions/workflows/.github/workflows/main.yml/badge.svg)
 
 ----
 
