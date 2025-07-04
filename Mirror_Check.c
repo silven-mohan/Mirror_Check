@@ -1,4 +1,4 @@
-/** Palindrome Checkers for plain strings **/
+/*** Palindrome Checkers for plain strings ***/
 
 #include<stdio.h>
 #include<string.h>
