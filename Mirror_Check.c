@@ -3,6 +3,7 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
+#include<ctype.h>
 
 void strlwr(char *str) 
 {
@@ -26,7 +27,7 @@ void strrev(char *str)
 int main()
 {
 	char input1[100], input[100], rev[100];
-	system("cls");
+	/* system("cls"); */
 	printf("Enter the word:");
 	gets(input1);
 	strlwr(input1);
