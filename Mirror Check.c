@@ -4,7 +4,7 @@
 #include<string.h>
 #include<stdlib.h>
 
-main()
+int main()
 {
 	char input1[100], input[100], rev[100];
 	system("cls");
@@ -22,4 +22,6 @@ main()
 	{
 		printf("%s is not a Palindrome.", input);
 	}
+
+	return 0;
 }
