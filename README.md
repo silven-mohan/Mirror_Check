@@ -14,4 +14,12 @@ Mirror Check is a program which checks whether user-entered string is a palindro
   madam is a palindrome.
 ```
 
+----
+
+## 📃License
+
+  See included [LICENSE](./LICENSE) file for more details.
+
+----
+
 ## Author: Silven Mohan
